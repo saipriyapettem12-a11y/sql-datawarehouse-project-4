@@ -1,0 +1,66 @@
+
+-- cust_info
+
+select cst_id,
+count(*)
+from silver.crm_cust_info
+group by cst_id
+HAVING Count(*) > 1 or cst_id is null;  
+
+
+select cst_firstname from silver.crm_cust_info
+WHERE cst_firstname != trim(cst_firstname);
+
+
+select cst_lastname from silver.crm_cust_info
+WHERE cst_lastname != trim(cst_lastname);
+
+select cst_gndr from silver.crm_cust_info
+WHERE cst_gndr != trim(cst_gndr);
+
+select DISTINCT cst_gndr from silver.crm_cust_info;
+
+select DISTINCT cst_marital_status from silver.crm_cust_info;
+
+
+
+
+-- prd_info
+
+
+select prd_id,
+count(*)
+from bronze.crm_prd_info
+group by prd_id
+HAVING Count(*) > 1 or prd_id is null;
+
+
+select 
+prd_id,
+REPLACE(SUBSTRING(prd_key,1,5),'-','_') as Cat_id,
+SUBSTRING(prd_key,7,LEN(prd_key)) as prd_key,
+ISNULL(prd_cost,0) as prd_cost
+from bronze.crm_prd_info
+
+select prd_num from bronze.crm_prd_info
+Where prd_num != TRIM(prd_num);
+
+select prd_cost from bronze.crm_prd_info
+Where prd_cost is  null or prd_cost <=0;
+
+
+select
+CASE
+WHEN UPPER(TRIM(prd_line))='M' THEN 'Mountain'
+WHEN UPPER(TRIM(prd_line))='R' THEN 'Road'
+WHEN UPPER(TRIM(prd_line))='S' THEN 'Other Sales'
+WHEN UPPER(TRIM(prd_line))='T' THEN 'Touring'
+ELSE 'n/a'
+END AS prd_line
+from bronze.crm_prd_info
+
+
+select 
+CAST(prd_start_dt AS DATE) AS prd_start_dt,
+CAST(LEAD(prd_start_dt) OVER (PARTITION BY prd_key ORDER BY prd_start_dt) -1 AS DATE) AS prd_end_dt
+from bronze.crm_prd_info
