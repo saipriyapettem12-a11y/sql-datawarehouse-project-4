@@ -41,7 +41,9 @@ INSERT INTO silver.crm_cust_info (
 
 
 
--- insert into silver crm_prd_info 
+-- fixing crm_prd_info 
+
+
 
 
 insert into silver.crm_prd_info (
