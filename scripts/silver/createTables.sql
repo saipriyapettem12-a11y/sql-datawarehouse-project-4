@@ -1,3 +1,6 @@
+
+-- cust_info table
+
 CREATE TABLE silver.crm_cust_info (
     cst_id              INT,
     cst_key             NVARCHAR(50),
@@ -9,7 +12,7 @@ CREATE TABLE silver.crm_cust_info (
 );
 
 
-
+-- prd_info table
 
 CREATE TABLE silver.crm_prd_info (
     prd_id          INT,
@@ -24,6 +27,8 @@ CREATE TABLE silver.crm_prd_info (
 );
 
 
+-- sales_deatils table
+
 CREATE TABLE silver.crm_sales_details (
     sls_ord_num  NVARCHAR(50),
     sls_prd_key  NVARCHAR(50),
@@ -37,6 +42,7 @@ CREATE TABLE silver.crm_sales_details (
 );
 
 
+-- loc_a10 table
 
 CREATE TABLE silver.erp_loc_a101 (
     cid    NVARCHAR(50),
@@ -44,12 +50,18 @@ CREATE TABLE silver.erp_loc_a101 (
 );
 
 
+
+-- cust_az12 table
+
 CREATE TABLE silver.erp_cust_az12 (
     cid    NVARCHAR(50),
     bdate  DATE,
     gen    NVARCHAR(50)
 );
 
+
+
+-- px_cat_g1v2 table
 
 CREATE TABLE silver.erp_px_cat_g1v2 (
     id           NVARCHAR(50),
