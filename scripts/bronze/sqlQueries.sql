@@ -27,7 +27,7 @@ FIELDTERMINATOR=',',
 TABLOCK
 );
 
-select * from bronze.crm_cust_info;
+SELECT * FROM bronze.crm_cust_info;
 
 
 
@@ -50,19 +50,19 @@ FIELDTERMINATOR=',',
 TABLOCK
 );
 
-select * from bronze.crm_prd_info;
+SELECT * FROM bronze.crm_prd_info;
 
 
-create table bronze.crm_sales_details(
-sls_ord_num NVARCHAR(50),
-sls_prd_key NVARCHAR(50),
-sls_cust_id INT,
-sls_order_dt INT,
-sls_ship_dt INT,
-sls_due_dt INT,
-sls_sales INT,
-sls_quantity INT,
-sls_price INT
+CREATE TABLE bronze.crm_sales_details (
+    sls_ord_num  NVARCHAR(50),
+    sls_prd_key  NVARCHAR(50),
+    sls_cust_id  INT,
+    sls_order_dt INT,
+    sls_ship_dt  INT,
+    sls_due_dt   INT,
+    sls_sales    INT,
+    sls_quantity INT,
+    sls_price    INT
 );
 
 BULK INSERT bronze.crm_sales_details
@@ -73,10 +73,10 @@ FIELDTERMINATOR=',',
 TABLOCK
 );
 
-select * from bronze.crm_sales_details;
+SELECT * FROM bronze.crm_sales_details;
 
 
-create table bronze.erp_cust_az12(
+CREATE TABLE bronze.erp_cust_az12(
 cid NVARCHAR(50),
 bdate DATE,
 gen NVARCHAR(50)
@@ -90,11 +90,11 @@ FIELDTERMINATOR=',',
 TABLOCK
 );
 
-select * from bronze.erp_cust_az12;
+SELECT * FROM bronze.erp_cust_az12;
 
 
 
-create table bronze.erp_loc_a101(
+CREATE TABLE bronze.erp_loc_a101(
 cid NVARCHAR(50),
 cntry NVARCHAR(50)
 );
@@ -107,10 +107,10 @@ FIELDTERMINATOR=',',
 TABLOCK
 );
 
-select * from bronze.erp_loc_a101;
+SELECT * FROM bronze.erp_loc_a101;
 
 
-create table bronze.erp_px_cat_g1v2(
+CREATE TABLE bronze.erp_px_cat_g1v2(
 id NVARCHAR(50),
 cat NVARCHAR(50),
 subcat NVARCHAR(50),
@@ -126,4 +126,4 @@ TABLOCK
 );
 
 
-select * from bronze.erp_px_cat_g1v2;
+SELECT * FROM bronze.erp_px_cat_g1v2;
