@@ -1,5 +1,6 @@
+-- Reports Tables
 
--- Customers Dataset
+-- Create Report: gold.report_customers
 
 IF OBJECT_ID('gold.report_customers', 'V') IS NOT NULL
     DROP VIEW gold.report_customers;
@@ -87,7 +88,7 @@ select * from gold.report_customers;
 
 
 
--- Products Dataset
+-- Create Report: gold.report_products
 
 IF OBJECT_ID('gold.report_products', 'V') IS NOT NULL
     DROP VIEW gold.report_products;
