@@ -9,6 +9,16 @@ Create Schema silver;
 
 Create Schema gold;
 
+CREATE TABLE bronze.crm_cust_info(
+cst_id INT,
+cst_key varchar(50),
+cst_firstname varchar(50),
+cst_lastname varchar(50),
+cst_marital_status varchar(50),
+cst_gndr varchar(50),
+cst_create_date date
+);
+
 BULK INSERT bronze.crm_cust_info
 from 'C:\Users\ASHVITHA SAI\Downloads\sql-data-warehouse-project\datasets\source_crm\cust_info.csv'
 WITH(
@@ -18,6 +28,7 @@ TABLOCK
 );
 
 select * from bronze.crm_cust_info;
+
 
 create table bronze.crm_prd_info(
 prd_id INT,
@@ -38,6 +49,7 @@ TABLOCK
 );
 
 select * from bronze.crm_prd_info;
+
 
 create table bronze.crm_sales_details(
 sls_ord_num NVARCHAR(50),
@@ -61,6 +73,7 @@ TABLOCK
 
 select * from bronze.crm_sales_details;
 
+
 create table bronze.erp_cust_az12(
 cid NVARCHAR(50),
 bdate DATE,
@@ -78,6 +91,7 @@ TABLOCK
 select * from bronze.erp_cust_az12;
 
 
+
 create table bronze.erp_loc_a101(
 cid NVARCHAR(50),
 cntry NVARCHAR(50)
@@ -92,6 +106,7 @@ TABLOCK
 );
 
 select * from bronze.erp_loc_a101;
+
 
 create table bronze.erp_px_cat_g1v2(
 id NVARCHAR(50),
